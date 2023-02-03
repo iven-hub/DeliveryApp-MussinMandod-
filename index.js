@@ -1,34 +1,24 @@
-const express = require('express');
-const { ApolloServer } = require('apollo-server-express');
-const mongoose = require('mongoose');
+import  express  from "express"
 
-const typeDefs = require('./shema');
-const resolvers = require('./resolvers');
+import { graphqlHTTP } from "express-graphql"
+import {connectionDataBase} from './database/db.js'
+import { schema } from './schema.js'
 
-const Client = require('./models/Client');
-const Delivery = require('./models/Delivery');
 
-const startServer = async () => {
-  const app = express();
+const app = express()
 
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    context: {
-      Client,
-      Delivery,
-    },
-  });
+connectionDataBase()
 
-  server.applyMiddleware({ app });
+app.use(express.json())
 
-  await mongoose.connect(
-    'mongodb://localhost:27017/delivery-app',
-    { useNewUrlParser: true }
-  );
+app.use(
+    '/graphql',
+    graphqlHTTP({
+      schema: schema,
+      graphiql: true,
+    }),
+  )
 
-  app.listen(8002, () => console.log("Rodando no port 8002"));
-};
+app.listen(8002,()=> console.log("Na porta 8002"))
 
-startServer();
-
+export default app

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const DeliverySchema = new mongoose.Schema({
   client: {
@@ -20,6 +20,6 @@ const DeliverySchema = new mongoose.Schema({
   },
 });
 
-const Delivery = mongoose.model('Delivery', DeliverySchema);
+export const Delivery = mongoose.model('Delivery', DeliverySchema);
 
-module.exports = Delivery;
+//module.exports = Delivery;
