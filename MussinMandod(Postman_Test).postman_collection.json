@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "83b8e240-3089-4350-ba26-d160c85d2337",
+		"name": "MussinMandod(Postman_Test)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24510563"
+	},
+	"item": [
+		{
+			"name": "add client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    addClient(\r\n        name: \"iven\",\r\n        email: \"iven@\",\r\n        phone: \"dddddd\"\r\n        \r\n    ){\r\n        name\r\n        email\r\n        phone\r\n        \r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    updateClient(\r\n        id: \"63dd4f5f8ebe9bdf5dc7930f\",\r\n        name: \"ivenRamos\",\r\n        email: \"iven@gmail.com\",\r\n        phone: \"5998348\"\r\n    ){\r\n        name\r\n        email\r\n        phone\r\n        \r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adddelivery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    addDelivery(\r\n        client: \"63dd4f5f8ebe9bdf5dc7930f\",\r\n        orderId: \"123\",\r\n        deliveryAddress: \"Cruz\",\r\n        deliveryStatus: \"30 min\"\r\n\r\n    ){\r\n        client{ name}\r\n        orderId\r\n        deliveryAddress\r\n        deliveryStatus\r\n\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllDeliveries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    deliveries{\r\n        deliveryAddress\r\n        deliveryStatus\r\n        orderId\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllClients",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    clients{\r\n        name\r\n        email\r\n        phone\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queryClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    client(\r\n        id : \"63dd4f5f8ebe9bdf5dc7930f\"\r\n\r\n    )\r\n    {\r\n        name\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateDelivery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    updateDelivery(\r\n        id: \"63dd5b527545b5d3c8771e6c\",\r\n        orderId: \"1234\",\r\n        deliveryAddress: \"maderalzinho\"\r\n        deliveryStatus: \"entregue\"\r\n    ){\r\n        id\r\n        orderId\r\n        deliveryAddress\r\n        deliveryStatus\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "queryDelivery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    delivery(\r\n        id: \"63dd5b527545b5d3c8771e6c\"\r\n    ){\r\n        client{\r\n            name\r\n        }\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addClient2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    addClient(\r\n        name: \"leo\",\r\n        email: \"leo@gmail.com\",\r\n        phone: \"25632548\"\r\n        \r\n    ){\r\n        name\r\n        email\r\n        phone\r\n        \r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    deleteclient(\r\n        id: \"63dd75d2b1f10f1d939491ca\"\r\n    ){\r\n        id\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletedelivery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    deleteDelivery(\r\n        id: \"63e28bc3baad25710bb9133f\"\r\n    ){\r\n        id\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adddelivery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n    addDelivery(\r\n        client: \"63dd4f5f8ebe9bdf5dc7930f\",\r\n        orderId: \"1232\",\r\n        deliveryAddress: \"Vila nova\",\r\n        deliveryStatus: \"entregue\"\r\n\r\n    ){\r\n        client{ name}\r\n        orderId\r\n        deliveryAddress\r\n        deliveryStatus\r\n\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
