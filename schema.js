@@ -120,6 +120,16 @@ const TypeMutation = new GraphQLObjectType({
         return updateClient
       },
     },
+
+    deleteclient: {
+      type: ClientType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      async resolve(parent,args) {
+        return Client.findByIdAndRemove(args.id)
+      },
+    },
     
 
     addDelivery: { 
@@ -162,6 +172,16 @@ const TypeMutation = new GraphQLObjectType({
         )
 
         return updateDelivery
+      },
+    },
+
+    deleteDelivery: {
+      type: DeliveryType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      async resolve(parent,args) {
+        return Delivery.findByIdAndRemove(args.id)
       },
     },
 }});
